@@ -20,9 +20,9 @@ export function dogDetail(id) {
     }
 };
 
-export function getDogsByName (name) {   //acá traigo los perros que coincidan con el nombre pasado por query
+export function getDogsByName (name) {   //acá traigo del back-end los perros que coincidan con el nombre pasado por query
     return async function (dispatch) {
-        var json = await axios.get ("http://localhost:3001/api/dogs?name=" + name);
+        var json = await axios.get ("http://localhost:3001/api/dogs?name=" + name);  //mi ruta del back mas lo que el usuario le pase como nombre en la barra de búsqueda
         return dispatch ({
             type: "GET_DOGS_BY_NAME",
             payload: json.data

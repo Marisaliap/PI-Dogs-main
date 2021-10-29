@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paged from "./Paged";
 import style from "./Home.module.css";
+import SearchBar from "./SearchBar";
 
 export default function Home () {
 
-const dispatch = useDispatch()
+const dispatch = useDispatch()                        //uso el hook useDispatch
 const allDogs = useSelector((state) => state.dogs)   // este hook es lo mismo que usar el mapStateToProps. Con useSelector traeme en esa constante todo lo que esta en el estado de dogs
 // me trae desde el reducer el estado dogs donde están todos los perros 
 
@@ -85,9 +86,6 @@ return (
             ))}
           </select>
           </div>
-        <div className={style.search}>
-         {/*  <SearchBar /> */}
-        </div>
         <div className={style.order}>
           <div className={style.alf}>
             <h5>Order by Name:</h5>
@@ -103,6 +101,16 @@ return (
               <option value="Weight 2">Big</option>
             </select>
             </div>
+           <div className={style.pagination}>
+        <Paged
+          dogsPerPage= { dogsPerPage }
+          allDogs= { allDogs.length }                     //renderizo allDogs.length porque necesito un valor numérico
+          pagedTotal= { pagedTotal }
+        />
+      </div>
+      <div className={style.search}>
+         <SearchBar /> 
+        </div>
             <div className={style.direccion}>
         { currentDogs?.map( el => {            //necesito tomar en el map solo los dogs que me devuelve el paginado
                 return (
@@ -126,13 +134,6 @@ return (
         }
         </div>
         </div>
-           <div className={style.pagination}>
-        <Paged
-          dogsPerPage= { dogsPerPage }
-          allDogs= { allDogs.length }                     //renderizo allDogs.length porque necesito un valor numérico
-          pagedTotal= { pagedTotal }
-        />
-      </div>
         {<div className={style.btnBack}>
         <Link to="/">
           <button className={style.back}>Back</button>

@@ -1,13 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from 'react-router-dom'; 
+import styles from "../styles/LandingPage.module.css";
 
 export default function LandingPage() {
     return (
-        <div>
-            <h1>Bienvenidos</h1>
-            <Link to ="/home">
-                <button>Ingresar</button>
-            </Link>
-        </div>
+      <div className={styles.landingpage}>
+         {<div className={styles.container}>
+            <h1  className={styles.title}>The Dog Api</h1>
+            <div>
+            <NavLink to ="/home">
+                <button className={styles.button}>Lets Go In!</button>
+            </NavLink>
+            </div>
+        </div>}
+        </div> 
     )
-}
+} 

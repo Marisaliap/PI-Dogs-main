@@ -2,11 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDogs, orderbyName, orderbyWeight, filterDogsCreated, filterDogTemp, getTemperaments } from "../actions";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Card from "./Card";
 import Paged from "./Paged";
-import style from "./Home.module.css";
+import styles from "../styles/Home.module.css";
 import SearchBar from "./SearchBar";
+import dog_logo from "../assets/dog_8.png";
+
 
 export default function Home () {
 
@@ -68,54 +70,65 @@ function handleOrderByWeight(e) {
 }
 
 return (
-    <div> 
-        <Link to= "/dogs">Create a New Dog</Link> 
-        <h1> Welcome to Dogs Love! </h1>
-        <button onClick= {e => { handleClick(e) }}>    
+    <div className={styles.home}> 
+    <div className={styles.searchArea}> 
+    <img className={styles.image} src={dog_logo} alt="Image not Found"  />
+    <div className={styles.search}>
+         <SearchBar /> 
+         </div>
+         <div className={styles.create}>
+        <Link to= "/dog">Create a New Dog</Link>
+        </div>
+    </div>
+     <div className={styles.nav}> 
+        <div className={styles.head}>
+        <h1> Find your Favorite Dog! </h1>
+        </div>
+       {/*  <div className={styles.create}>
+        <Link to= "/dog">Create a New Dog</Link>
+        </div> */}
+        <button className={styles.reload} onClick={(e) => handleClick(e)}> 
             Refresh
         </button>
-        <select onClick={(e) => handleFilterCreated(e)} className={style.selectAC}>
+        <br />
+        <select onClick={(e) => handleFilterCreated(e)} className={styles.selectD}>
           <option value="All">All</option>
           <option value="Created">Created</option>
         </select>
-        <div className={style.filterTemp}>
-          <select onClick={(e) => handleFilterByTemp(e)} className={style.temps}>
+        <div className={styles.filterTemp}>
+          <select className={styles.temps} onClick={(e) => handleFilterByTemp(e)}>
             <option value="">Filter by Temperament</option>
             {allTemp.map((temp) => (
               <option key={temp.id} value={temp.name}>{temp.name}</option>
             ))}
           </select>
           </div>
-        <div className={style.order}>
-          <div className={style.alf}>
+         {/*  <div className={styles.search}>
+         <SearchBar /> 
+         </div> */}
+          <div className={styles.order}>
+          <div className={styles.ordername}>
             <h5>Order by Name:</h5>
             <select onClick={(e) => handleOrderByName(e)}>
               <option value="Asc">From A to Z</option>
               <option value="Desc">From Z to A</option>
             </select>
           </div>
-          <div className={style.weight}>
+          <div className={styles.orderweight}>
             <h5>Order by weight:</h5>
             <select onClick={(e) => handleOrderByWeight(e)}>
               <option value="Weight 1">Small</option>
               <option value="Weight 2">Big</option>
             </select>
             </div>
-           <div className={style.pagination}>
-        <Paged
-          dogsPerPage= { dogsPerPage }
-          allDogs= { allDogs.length }                     //renderizo allDogs.length porque necesito un valor numérico
-          pagedTotal= { pagedTotal }
-        />
-      </div>
-      <div className={style.search}>
-         <SearchBar /> 
+            </div>
         </div>
-            <div className={style.direccion}>
+
+      <div className={styles.direction}>
         { currentDogs?.map( el => {            //necesito tomar en el map solo los dogs que me devuelve el paginado
                 return (
-                    <div className={style.container}>
-                      <Link to={"/home/" + el.id}>
+                    <div className={styles.container}>
+                      <NavLink styles={{ textDecoration: "none" }} to={"/dogs/" + el.id}>
                 <Card 
                 name={el.name} 
                 image={el.image} 
@@ -127,18 +140,22 @@ return (
                 key={el.id}
                 weight={el.weight}
                 />
-                </Link>
+                </NavLink>
             </div>
           );
             })
         }
         </div>
+        <div className={styles.paged}>
+        <Paged
+          dogsPerPage= { dogsPerPage }
+          allDogs= { allDogs.length }                     //renderizo allDogs.length porque necesito un valor numérico
+          pagedTotal= { pagedTotal }
+        />
+      </div>
+      <div className={styles.back}>
+        <Link to="/"><button className={styles.backbutton} >Back</button></Link>
         </div>
-        {<div className={style.btnBack}>
-        <Link to="/">
-          <button className={style.back}>Back</button>
-        </Link>
-      </div>}
     </div>
 )
 }

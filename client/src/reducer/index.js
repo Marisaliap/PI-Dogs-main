@@ -4,8 +4,8 @@ const initialState = {
     allDogs : [],   //hago una copia del estado que siempre tenga todos los dogs para que me haga los filtros sobre todo y no sobre el estado que ya filtré
     orderDogs : [],        //de esta manera no tengo que volver a cargar a todos los perros
     weightDogs : [], 
-    temperaments : [],
-    detail : [],
+    temperaments : [],    //declaro un nuevo estado temperament donde guardo los temperamentos 
+    detail : [],          //creo un nuevo estado detail para guardar la info del detalle del perro
 }
 
 function rootReducer (state = initialState, action) {
@@ -19,7 +19,7 @@ function rootReducer (state = initialState, action) {
         case "DOG_DETAIL" :             //al hacer click sobre un perro accedo a sus detalles
             return {
                ...state,
-               detail: action.payload
+               detail: action.payload     // a detail que es el estado que está creado arriba, pasale action.payload
             }
         case "GET_DOGS_BY_NAME" :
             return {
@@ -31,6 +31,10 @@ function rootReducer (state = initialState, action) {
                 ...state,
                 temperaments: action.payload
             }
+        case "POST_DOG" :           //post dog tiene que estar en el reducer pero no hace nada, porque yo creo un dog en una ruta nueva
+            return {
+                ...state,
+            } 
         case "FILTER_DOGS_CREATED" :   //si el valor de mi acción es created, traigo todos aquellos creados en la DB  
             const dogsFiltered = action.payload === "Created" ? state.allDogs.filter((dog) => dog.createdInDb) :   //primero siempre filtro el arreglo que tiene todo
             state.allDogs.filter((dog) => !dog.createdInDb);

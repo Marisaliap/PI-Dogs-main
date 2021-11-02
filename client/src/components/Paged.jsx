@@ -1,5 +1,5 @@
 import React from "react";
-
+import styles from "../styles/Paged.module.css";
 
 export default function Paged ({ dogsPerPage, allDogs, pagedTotal}) {
     const pageNumber = []; 

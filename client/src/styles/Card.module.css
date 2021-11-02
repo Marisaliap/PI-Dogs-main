@@ -1,0 +1,86 @@
+body{
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+
+.box{
+    margin-left:35px;
+    justify-content: center;
+    background-color: #fdf6fc73;
+    border-radius: 7%  7% 3% 3%;
+    height: 245px;
+    width: 220px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+}
+
+.breed {
+    text-decoration: 'none';
+    font-size: 14px;
+    color:  #1E0E00;
+    font-weight: 20px;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 7px;
+    height: 30px;
+    width: 240px;
+    z-index: 1;
+}
+
+.weight {
+    font-size: 12px;
+    color:  #231001;
+    text-decoration: 'none';
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    
+}
+
+.temps {
+    font-size: 16px;
+    color:  #231001;
+    text-decoration: 'none';
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    
+}
+
+.image {
+    width:180px;
+    height: 180px;
+    border-radius: 7%;
+    justify-content: center;
+    margin-top: 20px;
+    z-index: 1;
+    
+}
+
+.overlay{
+   
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fdf6fc41;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+    border-radius: 7%  7% 3% 3%;
+    backdrop-filter: 1px;
+    text-align: left;
+    
+} 
+
+.text{
+    margin-top: 10px;
+    margin-left: 10px;
+} 
+
+.box:hover .overlay{
+    height: 100%;
+    box-shadow: 0 0 2px #DE6200, 0 0 2px #DE6200, 0 0 2px  #DE6200;
+    transition: 0.5s
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');

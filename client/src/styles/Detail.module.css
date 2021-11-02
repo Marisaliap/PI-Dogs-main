@@ -1,0 +1,79 @@
+.all{
+  /*   background-image: url(../../media/patitas.jpg); */
+    background-position: center; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    overflow: hidden;
+    height: 100%; 
+   
+    position:fixed
+}
+.title {
+    text-decoration: 'none';
+    padding: px;
+    font-size: 25px;
+    color: rgb(66, 2, 45);
+   
+    font-weight: 1000;
+    
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+.text {
+    font-size: 20px;
+    color:rgb(66, 2, 45);
+    font-family: 'Montserrat Alternates', sans-serif;
+    text-decoration: 'none';
+}
+.back {
+
+    border: none;
+    font-family: 'Montserrat Alternates', sans-serif;
+    background-color: #d490b2a2;
+    color: white;
+    border-radius: 10px;
+    text-align:center;
+    cursor: pointer;
+    width: 90px;
+    height: 50px;
+    z-index: 4;
+    
+}
+.back:hover{
+    background-color: #fdd6f773;
+    box-shadow: 0 0 10px rgba(128, 3, 107, 0.452), 0 0 10px rgba(128, 67, 85, 0.863), 0 0 10px rgba(255, 255, 255, 0.541);
+    border: none;
+    color: rgb(66, 2, 45);
+}
+
+.contenedor {
+    
+    text-decoration: none;
+    width: 800px;
+    height: 600px;
+    align-items: center; 
+    text-align: center;
+    background-color: rgba(235, 224, 229, 0.616);
+    border-radius: 5%;
+    justify-content:center;
+    backdrop-filter: blur 4;
+    margin-top: 60px;
+    padding-top: 10px;
+    padding-left: 10px;
+    justify-content:center;
+    margin-left: 400px;
+    position: fixed;
+    box-shadow: 0 0 10px rgba(128, 3, 107, 0.452), 0 0 10px rgba(128, 67, 85, 0.863), 0 0 10px rgba(255, 255, 255, 0.541);
+}
+.contenedor:hover{
+    background-color: rgba(245, 228, 236, 0.616);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.377), 0 0 10px rgba(255, 255, 255, 0.377), 0 0 10px rgba(255, 255, 255, 0.377);
+}
+.image {
+    height: 250px;
+    width: 300px;
+    border-radius: 8%;
+    justify-content: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');

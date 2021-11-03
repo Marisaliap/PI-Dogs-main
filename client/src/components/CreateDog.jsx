@@ -17,9 +17,9 @@ function validate(input) {
     } else if (!input.max_height) {
         errors.max_height = "Max height is required";
     } else if (input.max_height <= 0) {
-        errors.max_height = "Min height should be greater than zero";
+        errors.max_height = "Max height should be greater than zero";
     } else if (parseInt(input.min_height) >= parseInt(input.max_height)) {      //convierto el peso que me viene en string en un entero para compararlo
-        errors.max_height = "Max weight must be greater than Min weight";
+        errors.max_height = "Max height must be greater than Min height";
     } else if (!input.min_weight) {
         errors.min_weight = "Min weight is required";
     } else if (input.min_weight <= 0) {
@@ -27,7 +27,7 @@ function validate(input) {
       } else if (!input.max_weight) {
         errors.max_weight = "Max weight is required";
       } else if (input.max_weight <= 0) {
-        errors.max_weight = "Min weight should be greater than zero";
+        errors.max_weight = "Max weight should be greater than zero";
       } else if (parseInt(input.min_weight) >= parseInt(input.max_weight)) {      //convierto el peso que me viene en string en un entero para compararlo
         errors.max_weight = "Max weight must be greater than Min weight";
       }  else if (!input.life_span) {
@@ -142,76 +142,76 @@ export default function CreateDog () {
         <div className={styles.bkg}> 
         <div className={styles.container}>
             <h1 className={styles.title}>Create Your Dog!</h1>
-            <form
+            <form  className={styles.form}
           id="DoNotSubmit"
           onSubmit={(e) => handleSubmit(e)}>
             <div><label>Name: </label>
                             <input 
                                 key = "name"
                                 className={styles.input}
-                                placeholder='Insert a Name'
-                                type='text'
-                                name='name'
+                                placeholder="Enter a Name"
+                                type="text"
+                                name="name"
                                 value={input.name}
                                 onChange={(e) => handleChange(e)}
                                 />
                                 {errors.name && (
-                                    <p className= "error">{errors.name}</p>
+                                    <p className={styles.error}>{errors.name}</p>
                                 )}                                       
                         </div>
                         <div className={styles.minMax} >
                         <label>Height: </label>
-                                <input className={styles.input} onChange={(e) => handleChange(e)} name="min_height" type="min_height" value={input.min_height} placeholder='Insert Min height'
-                                required/>
+                                <input className={styles.input} onChange={(e) => handleChange(e)} name="min_height" type="min_height" value={input.min_height} placeholder="Min height"
+                                />
                                 {errors.min_height && (
-                                    <p className= "error">{errors.min_height}</p>
+                                    <p className={styles.error}>{errors.min_height}</p>
                                 )} 
-                                <input className={styles.input} onChange={(e) => handleChange(e)} name="max_height" type="max_height" value={input.max_height} placeholder='Insert Max height'
-                                required/>  
+                                <input className={styles.input} onChange={(e) => handleChange(e)} name="max_height" type="max_height" value={input.max_height} placeholder="Max height"
+                                />  
                                 {errors.max_height && (
-                                    <p className= "error">{errors.max_height}</p>
+                                    <p className={styles.error}>{errors.max_height}</p>
                                 )} 
                         </div>
                         <div className={styles.minMax}>
                         <label>Weight: </label>
-                                <input className={styles.input} onChange={(e) => handleChange(e)} name="min_weight" type="min_weight" value={input.min_weight} placeholder='Insert Min weight'
-                                required/>
+                                <input className={styles.input} onChange={(e) => handleChange(e)} name="min_weight" type="min_weight" value={input.min_weight} placeholder="Min weight"
+                                />
                                 {errors.min_weight && (
-                                    <p className= "error">{errors.min_weigh}</p>
+                                    <p className={styles.error}>{errors.min_weight}</p>
                                 )} 
-                                <input className={styles.input} onChange={(e) => handleChange(e)} name="max_weight" type="max_weight" value={input.max_weight} placeholder='Insert Max weight'
-                                required/>
+                                <input className={styles.input} onChange={(e) => handleChange(e)} name="max_weight" type="max_weight" value={input.max_weight} placeholder="Max weight"
+                                />
                                 {errors.max_weight && (
-                                    <p className= "error">{errors.max_weight}</p>
+                                    <p className={styles.error}>{errors.max_weight}</p>
                                 )}
                         </div>
                         <div > <label>Life Span: </label>
                             <input 
                                 className={styles.input}
-                                placeholder='Insert Life Span'
-                                type='text'
-                                name='life_span'
+                                placeholder="Life Span"
+                                type="text"
+                                name="life_span"
                                 value={input.life_span}
                                 onChange={(e) => handleChange(e)}
                             />
                                 {errors.life_span && (
-                                    <p className= "error">{errors.life_span}</p>
+                                    <p className={styles.error}>{errors.life_span}</p>
                                 )} 
                         </div>
                         <div><label>Image: </label>
                             <input 
                                 key = "image"
                                 className={styles.input}
-                                placeholder='Insert URL image'
-                                type='text'
-                                name='image'
+                                placeholder="Insert URL image"
+                                type="text"
+                                name="image"
                                 value={input.image}
                                 onChange={(e) => handleChange(e)}
                             />
-                            {errors.image && <p>{errors.image}</p>}
+                            {errors.image && <p className={styles.error}>{errors.image}</p>}
                         </div>
                         <div className={styles.temps}> <label>Choose Temperaments: </label>
-                        <select name="temperament" onChange={(e) => handleSelect(e)}  type="text" >
+                        <select className={styles.templist} name="temperament" onChange={(e) => handleSelect(e)}  type="text" >
                                     <option value={null}></option>
                                     {temperaments.map((temp, id)=>{    //agarro el estado que me traje con el useSelector
                                        /* console.log(temperaments)  //acá hice una prueba */ 
@@ -225,7 +225,7 @@ export default function CreateDog () {
                                         <React.Fragment key={id}>   
                                             
                                             <div className={styles.tempSelect}>{temp}
-                                            <button className={styles.btnTemp} value={temp} onClick={(e) => handleClick(e)}>X</button>
+                                            <button className={styles.btnTemp} value={temp} onClick={(e) => handleClick(e)}>x</button>
                                             </div>
                             
                                         </React.Fragment>
@@ -233,13 +233,17 @@ export default function CreateDog () {
                                     })    
                                 } 
                                  </div>
+                                 <div className={styles.formFooter}>
                                  <button 
-                            className={styles.submit} 
+                            className={styles.submitbutton} 
                             type= "submit" 
                            name= "submit" 
                              >Create Dog
                             </button>
-                                <Link to="/home"><button className={styles.back} >Back</button></Link><br/>                
+                            </div>
+                            <div className={styles.back}>
+                           <Link to="/home"><button className={styles.backbutton} >Back </button></Link>
+                            </div>              
             </form>
             </div>
     </div>

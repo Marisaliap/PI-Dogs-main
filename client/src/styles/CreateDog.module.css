@@ -32,6 +32,8 @@
     color: #fff;
     flex-direction: column;
     font-family: Lato, Arial, Helvetica, sans-serif;
+    font-weight: normal; 
+    text-shadow: 6px 6px 4px rgba(44, 11, 34, 0.473); 
     font-size: 40px;
     text-align: center;
     position: relative;
@@ -43,8 +45,9 @@
     padding: 5px;
     margin-top: 5px; 
     border-radius: 5px;
-    width: 180px;
+    width: 160px;
     margin: 7px;
+    text-align: left;
     /* background-color: #fdf6fc73; */
     /* color: rgb(161, 161, 161); */
 }
@@ -53,8 +56,15 @@
     background-color: #ffffcc73; 
 }
 
-.input:focus{
+/* .input:focus{
     outline: none;
+} */
+
+.error {
+    font-family: Lato, Arial, Helvetica, sans-serif;
+    color: #FF0000;
+    text-align:center;
+    font-size: 14px;
 }
 
    
@@ -67,98 +77,108 @@
     display: flex;
     flex-direction: column;
     border-radius: 3px;
-    font-weight: bold; 
-    margin-top:7px; 
-    /* width: 180px; */
-    height: 80px;
+    font-size: 14px;
+    color: #311601;
+    font-weight: bolder;
+    margin-top:7px;  
+    width: 180px;
+    height: 150px; 
     margin-left: 160px;
 } 
 
+.templist {
+    font-size: 14px;
+    color: #DE6200;
+    font-family: Lato, Arial, Helvetica, sans-serif;
+}
+
 .tempSelect{
-    margin-top: 10px;
+    margin-top: 7px;
 } 
 
-fieldset{
-    outline: none;
+.btnTemp{
+    width: 25px;
+    margin-left: 20px;
     border: none;
-   /*  background-color: rgba(229, 188, 211, 0.425); */
-   /*  backdrop-filter: blur 5px; */
+    font-family: Lato, Arial, Helvetica, sans-serif;
+    background-color: #DE6200;
+    color: white;
+    border-radius: 10px;
+    text-align:center;
+    cursor: pointer;
+} 
  
-} 
-
-form{
-    margin-top: 20px;
-}
-
-
-
-.submit{
-    z-index: 4px;
-   border: none;
-    font-family: Lato, Arial, Helvetica, sans-serif;
-    background-color: #c485baa2;
-    color: white;
-    border-radius: 10px;
-    text-align:center;
-    cursor: pointer;
-    width: 70px;
-    height: 30px;
-    margin-top: 100px;
-    margin-right: 200px;
-    
-}
-.submit:hover{
-    background-color: #fdf6fc73;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.377), 0 0 10px rgba(255, 255, 255, 0.377), 0 0 10px rgba(255, 255, 255, 0.377);
-    border: none;
-    color: rgb(66, 2, 45);
-    width: 75px;
-    height: 35px;
-    transition: 0.8s;
-}
-
-.back{
-    border: none;
-    font-family: Lato, Arial, Helvetica, sans-serif;
-    background-color: #c485baa2;
-    color: white;
-    border-radius: 10px;
-    text-align:center;
-    cursor: pointer;
-    width: 70px;
-    height: 30px;
-    z-index: 4;
-
-} 
-.back:hover{
-    background-color: #fdf6fc73;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.377), 0 0 10px rgba(255, 255, 255, 0.377), 0 0 10px rgba(255, 255, 255, 0.377);
-    border: none;
-    color: rgb(66, 2, 45);
-    width: 75px;
-    height: 35px;
-    transition: 0.8s;
-}
-
-/* .btnTemp{
-   width: 25px;
-   margin-left: 20px;
-   border: none;
-   font-family: Lato, Arial, Helvetica, sans-serif;
-   background-color: #DE6200;
-   color: white;
-   border-radius: 10px;
-   text-align:center;
-   cursor: pointer;
-} 
-
 .btnTemp:hover{
     background-color: #fdf6fc73;
     box-shadow: 0 0 5px rgba(44, 11, 34, 0.404), 0 0 5px rgba(44, 11, 34, 0.404), 0 0 5px rgba(44, 11, 34, 0.404); 
-    /* transition-delay: 0.2s;
+    transition-delay: 0.2s;
     transition: 0.8s;  
 }
- */
+
+.form{
+    margin-top: 10px;
+    font-size: 14px;
+    color: #311601;
+    font-weight: bolder;
+}
+
+.formFooter{
+    margin-top: 35px;
+    margin-right: 50%;
+}
+ 
+.submitbutton{
+    z-index: 4px;
+    border: none;
+    font-family: Lato, Arial, Helvetica, sans-serif;
+    background-color: #DE6200;
+    color: #fff;
+    border-radius: 10%;
+    text-align:center;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+    z-index: 4px;
+
+}
+
+.submitbutton:hover{ 
+    background-color: #fff;
+    border: none;
+    color: #220F00;
+    transition-delay: 0.2s;
+    transition: 0.8s;
+}
+ 
+.back{
+    margin-top: -36px;
+    margin-right: -50%;
+}
+ 
+.backbutton{
+    z-index: 4px;
+    border: none;
+    font-family: Lato, Arial, Helvetica, sans-serif;
+    background-color: #311601;
+    color: #fff;
+    border-radius: 10%;
+    text-align:center;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+    z-index: 4px;
+
+}
+
+.backbutton:hover{ 
+    background-color: #fff;
+    border: none;
+    color: #220F00;
+    transition-delay: 0.2s;
+    transition: 0.8s;
+}
 
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');

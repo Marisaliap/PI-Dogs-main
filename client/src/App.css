@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
 }
 
 .App-logo {
@@ -36,3 +37,6 @@
     transform: rotate(360deg);
   }
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');

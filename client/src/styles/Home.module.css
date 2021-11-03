@@ -116,7 +116,8 @@
     cursor: pointer;
     color: #1E0E00;
     background-color: #fdf6fc73;
-}
+} 
+
 .reload:hover{
     background-color: #fff;
     border: none;
@@ -143,7 +144,6 @@
     transition: 0.8s;
     
 }
-
 
 .order{
     position: fixed;

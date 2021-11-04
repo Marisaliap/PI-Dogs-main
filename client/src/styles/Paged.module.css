@@ -1,4 +1,4 @@
-.paginado {
+.paged {
   text-decoration: none;
 }
 
@@ -8,50 +8,28 @@
 }
 
 .number {
-  color: aqua;
+  color: #fff;
   list-style: none;
-  padding: 10px;
-  font-size: 16px;
-  font-family: Monospace, Arial;
+  padding: 5px;
+  font-size: 14px;
+  font-family: Lato, Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 .link {
-  padding: 9px;
+  padding: 1px;
   cursor: pointer;
   background: none;
   color: #fff;
   border: none;
-}
+  text-align: center;
+}    
 
 .link:hover {
-  border-radius: 5px;
-  border: solid 0.5px;
-}
-
-@media (min-width: 320px) {
-  .container::-webkit-scrollbar:horizontal {
-    display: none;
-}
-  .container {
-    width: 100%;
-    overflow-y: hidden;
-    overflow-x: auto;
-    justify-content: center;
-  }
-  .paginado {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    
-  }
-  .listContainer {
-    width: 320px;
-  }
-}
-/* 
-@media(min-width:1209px){
-  .paginado{
-    outline: 1px solid red;
-
-  }
-} */
+  padding: 1px;
+  cursor: pointer;
+  background: none;
+  color:#311601;
+  border: none;
+  text-align: center;
+}    

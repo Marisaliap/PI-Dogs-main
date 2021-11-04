@@ -123,8 +123,8 @@
 }
 
 .formFooter{
-    margin-top: 35px;
-    margin-right: 50%;
+    margin-top: 55px;
+    margin-right: -70%;
 }
  
 .submitbutton{
@@ -152,22 +152,22 @@
 }
  
 .back{
-    margin-top: -36px;
-    margin-right: -50%;
+    margin-top: 698px;
+    margin-right: -90%;
 }
  
 .backbutton{
     z-index: 4px;
     border: none;
     font-family: Lato, Arial, Helvetica, sans-serif;
-    background-color: #311601;
+    background-color: #c485ba83;
     color: #fff;
     border-radius: 10%;
     text-align:center;
     cursor: pointer;
-    width: 100px;
-    height: 40px;
-    font-size: 14px;
+    width: 70px;
+    height: 30px;
+    font-size: 12px;
     z-index: 4px;
 
 }

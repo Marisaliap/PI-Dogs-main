@@ -7,7 +7,7 @@ import Card from "./Card";
 import Paged from "./Paged";
 import styles from "../styles/Home.module.css";
 import SearchBar from "./SearchBar";
-import dog_logo from "../assets/dog_8.png";
+
 
 
 export default function Home () {
@@ -71,8 +71,7 @@ function handleOrderByWeight(e) {
 
 return (
     <div className={styles.home}> 
-    <div className={styles.searchArea}> 
-    <img className={styles.image} src={dog_logo} alt="Image not Found"  />
+    <div className={styles.searchContainer}>
     <div className={styles.search}>
          <SearchBar /> 
          </div>
@@ -80,34 +79,11 @@ return (
         <Link to= "/dog">Create a New Dog</Link>
         </div>
     </div>
-     <div className={styles.nav}> 
-        <div className={styles.head}>
+    <div className={styles.title}>
         <h1> Find your Favorite Dog! </h1>
         </div>
-       {/*  <div className={styles.create}>
-        <Link to= "/dog">Create a New Dog</Link>
-        </div> */}
-        <button className={styles.reload} onClick={(e) => handleClick(e)}> 
-            Refresh
-        </button>
-        <br />
-        <select onClick={(e) => handleFilterCreated(e)} className={styles.selectD}>
-          <option value="All">All</option>
-          <option value="Created">Created</option>
-        </select>
-        <div className={styles.filterTemp}>
-          <select className={styles.temps} onClick={(e) => handleFilterByTemp(e)}>
-            <option value="">Filter by Temperament</option>
-            {allTemp.map((temp) => (
-              <option key={temp.id} value={temp.name}>{temp.name}</option>
-            ))}
-          </select>
-          </div>
-         {/*  <div className={styles.search}>
-         <SearchBar /> 
-         </div> */}
-          <div className={styles.order}>
-          <div className={styles.ordername}>
+     <div className={styles.filterContainer}> 
+            <div className={styles.ordername}>
             <h5>Order by Name:</h5>
             <select onClick={(e) => handleOrderByName(e)}>
               <option value="Asc">From A to Z</option>
@@ -121,13 +97,31 @@ return (
               <option value="Weight 2">Big</option>
             </select>
             </div>
+            <div>
+          <select className={styles.temps} onClick={(e) => handleFilterByTemp(e)}>
+            <option value="">Filter by Temperament</option>
+            {allTemp.map((temp) => (
+              <option key={temp.id} value={temp.name}>{temp.name}</option>
+            ))}
+          </select>
+          </div>
+          <div>
+        <select onClick={(e) => handleFilterCreated(e)} className={styles.selectD}>
+          <option value="All">All</option>
+          <option value="Created">Created</option>
+        </select>
+        </div>
+          <div>
+            <button className={styles.reload} onClick={(e) => handleClick(e)}> 
+            Refresh
+        </button>
             </div>
         </div>
 
       <div className={styles.direction}>
         { currentDogs?.map( el => {            //necesito tomar en el map solo los dogs que me devuelve el paginado
                 return (
-                    <div className={styles.container}>
+                    <div className={styles.dogsContainer}>
                       <NavLink styles={{ textDecoration: "none" }} to={"/dogs/" + el.id}>
                 <Card 
                 name={el.name} 

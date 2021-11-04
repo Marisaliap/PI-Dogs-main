@@ -10,11 +10,13 @@ export default function Paged ({ dogsPerPage, allDogs, pagedTotal}) {
     }
     return (
         <nav>
-            <ul>                                                     
+            <ul className={styles.paged}>                                                     
                 {pageNumber?.map(num =>(                            //si tengo ese arreglo, mapeálo y devolveme cada número que te devuelva el paginado    
-                    <li key={num}>
-                        <a onClick={()=> pagedTotal(num)}>{num}</a>  
+                   <div className={styles.listContainer} key={num}>
+                  <li className={styles.number} key={num}>
+                        <a onClick={()=> pagedTotal(num)} className={styles.link}>{num}</a>  
                     </li>
+                    </div>
                 ))}         
             </ul>                                                
         </nav>

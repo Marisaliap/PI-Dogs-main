@@ -240,12 +240,12 @@ export default function CreateDog () {
                            name= "submit" 
                              >Create Dog
                             </button>
-                            </div>
-                            <div className={styles.back}>
-                           <Link to="/home"><button className={styles.backbutton} >Back </button></Link>
-                            </div>              
+                            </div>          
             </form>
             </div>
+            <div className={styles.back}>
+                           <Link to="/home"><button className={styles.backbutton} >Back </button></Link>
+                            </div>   
     </div>
  )
 }

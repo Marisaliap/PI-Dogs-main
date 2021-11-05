@@ -1,56 +1,39 @@
 
 .box{
-    /* margin-left:35px;
-    justify-content: center;
-    background-color: #fdf6fc73;
-    border-radius: 7%  7% 3% 3%;
-    height: 245px;
-    width: 220px;
-    align-items: center;
-    position: relative; */
-
     width: 290px;
     height: 370px;
     border-radius: 8px;
+    border: #949193 1px solid;
+    border-width: thin; 
     background-color: #fdf6fc73;
-  /*   color: #deb887; */
-    box-shadow: 0 2px 2px rgba(0,0,0,.5);
+    color: #deb887; 
+    box-shadow: 0 2px 2px rgba(0,0,0,.5); 
     overflow: hidden;
     margin: 20px;
     text-align: center;
     transition: all .25s;
-    text-decoration: none;
-    top:0px;
-    left:0px;
+    text-decoration: none; 
 
 }
 
 .box:hover {
-
-    box-shadow: 0 0 30px rgba(0,0,0,.5), 0 0 30px rgba(0,0,0,.5), 0 0 30px  rgba(0,0,0,.5);
-
-   /*  box-shadow: 0 10px 10px rgba(0,0,0,.5);  */
- 
-    border: none;
+    box-shadow: 0 0 20px rgba(44, 11, 34, 0.404) , 0 0 20px rgba(44, 11, 34, 0.404), 0 0 20px rgba(44, 11, 34, 0.404); 
     color: #220F00;
     transition-delay: 0.2s;
     transition: 0.8s;
     backdrop-filter: 1px;
-    top:4px;
-    left:4px;
-    /* background-color: #ffffff98; */
+    border: #949193 1px solid;
+    position: relative;
+    top: -20px;
 }
 
 .breed {
     text-decoration: 'none';
     font-size: 16px;
-    color:  #000000;
-   /*  font-weight: 20px; */
+    color:  /* #c53211 #164a41 #203647 #283747  #fc4a1a #00303f   rojos:  #932432 #b73225 #de354c #c53211 */  #b11a21   ;
+    font-weight: bolder;
     font-family: "Lato", Arial, Helvetica, sans-serif;
-    /* text-align: center; */
     margin-top: 7px;
-   /*  height: 30px;  dejar en el caso de que elija la otra forma 
-    width: 240px; */
 }
 
 .weight {
@@ -58,19 +41,19 @@
     color:  #000000;
     text-decoration: 'none';
     font-family: "Lato", Arial, Helvetica, sans-serif;
-    
 }
 
 .temps {
-    font-size: 16px;
-    color:  #000000;
+    font-size: 14px;
+    color: #000000;
     text-decoration: 'none';
     font-family: "Lato", Arial, Helvetica, sans-serif;
-    
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .image {
-    width:180px;
+    width: 240px;
     height: 180px;
     border-radius: 7%;
     justify-content: center;
@@ -80,22 +63,6 @@
     max-width: 180px; 
     max-height: 180px */
 }
-/* 
-.overlay{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #fdf6fc41;
-    overflow: hidden;
-    width: 100%;
-    height: 0;
-    transition: .5s ease;
-    border-radius: 7%  7% 3% 3%;
-    backdrop-filter: 1px;
-    text-align: left;
-    
-} */ 
 
 .text{
     margin-top: 10px;
@@ -104,12 +71,6 @@
     margin-bottom: 10px;
 } 
 
-/* .box:hover .overlay{
-    height: 100%;
-    box-shadow: 0 0 2px #DE6200, 0 0 2px #DE6200, 0 0 2px  #DE6200;
-    transition: 0.5s
-}
- */
 
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');

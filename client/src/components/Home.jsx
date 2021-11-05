@@ -5,7 +5,8 @@ import { getDogs, orderbyName, orderbyWeight, filterDogsCreated, filterDogTemp, 
 import { NavLink, Link } from "react-router-dom";
 import Card from "./Card";
 import Paged from "./Paged";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.css"; 
+/* import styles from "../styles/HomeBackup.module.css"; */
 import SearchBar from "./SearchBar";
 
 
@@ -127,7 +128,7 @@ return (
         { currentDogs?.map( el => {            //necesito tomar en el map solo los dogs que me devuelve el paginado
                 return (
                     <div className={styles.dogContainer}>
-                     {/*  <Link  styles={{ textDecoration: "none" }} to={"/dogs/" + el.id}> */}
+                      <Link className={styles.a} to={"/dogs/" + el.id}>
                 <Card 
                 name={el.name} 
                 image={el.image} 
@@ -139,7 +140,7 @@ return (
                 key={el.id}
                 weight={el.weight}
                 />
-                {/* </Link> */}
+                </Link>
             </div>
           );
             })

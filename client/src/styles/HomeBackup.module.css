@@ -26,7 +26,6 @@
 }
 
 .title {
-    /*  background-color: #fdf6fc73; */
     text-align:left;
     margin-left: 3%;
     color: #fff;
@@ -186,16 +185,20 @@
 }
 
 .mainContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 5px;
-    margin-top:10px;
-    margin-left: 2%;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    margin-top:15px;
+   /*  color: #deb887; */
 } 
 
 .dogContainer {
-    display: flex;
-    text-decoration: none;
+    padding-left: 40px;
+    margin-top: 10px;
+    margin-left: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr; 
 
 }
 

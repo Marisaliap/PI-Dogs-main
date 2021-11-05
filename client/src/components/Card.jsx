@@ -7,15 +7,13 @@ export default function Card({ name, image, temperament, weight}) {
         <div> 
             <div className={styles.box}>
             <div>
-            <h2 className={styles.breed}>{name}</h2>
+            <p className={styles.breed}>{name}</p>
             <img className={styles.image} src={image} alt= "Image not found" width= "200px" height="250px" />
             </div>
-            <div className={styles.overlay}>
+            <div /* className={styles.overlay} */>
             <div className={styles.text}>
-            <h2 className={styles.temps}>
-            <h5> {temperament} </h5>
-            </h2>
-            <h2 className={styles.weight}> {weight}  (Kg) </h2>
+            <p className={styles.temps}> {temperament} </p>
+            <p className={styles.weight}> {weight}  (Kg) </p>
             </div>
             </div>
             </div>

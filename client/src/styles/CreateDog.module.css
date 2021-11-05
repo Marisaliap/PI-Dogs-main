@@ -56,10 +56,6 @@
     background-color: #ffffcc73; 
 }
 
-/* .input:focus{
-    outline: none;
-} */
-
 .error {
     font-family: Lato, Arial, Helvetica, sans-serif;
     color: #FF0000;
@@ -133,7 +129,8 @@
     font-family: Lato, Arial, Helvetica, sans-serif;
     background-color: #DE6200;
     color: #fff;
-    border-radius: 10%;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px rgba(0,0,0,.5); 
     text-align:center;
     cursor: pointer;
     width: 100px;
@@ -157,18 +154,17 @@
 }
  
 .backbutton{
-    z-index: 4px;
     border: none;
     font-family: Lato, Arial, Helvetica, sans-serif;
     background-color: #c485ba83;
     color: #fff;
-    border-radius: 10%;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px rgba(0,0,0,.5); 
     text-align:center;
     cursor: pointer;
     width: 70px;
     height: 30px;
     font-size: 12px;
-    z-index: 4px;
 
 }
 

@@ -72,33 +72,36 @@ function handleOrderByWeight(e) {
 return (
     <div className={styles.home}> 
     <div className={styles.searchContainer}>
-    <div className={styles.search}>
+    <div>
          <SearchBar /> 
          </div>
-         <div className={styles.create}>
-        <Link to= "/dog">Create a New Dog</Link>
+         <div>
+        <Link to="/dog"><button className={styles.createButton} >Create You Own Dog!</button></Link>
         </div>
     </div>
+    <hr className={styles.line}/>
     <div className={styles.title}>
         <h1> Find your Favorite Dog! </h1>
         </div>
      <div className={styles.filterContainer}> 
-            <div className={styles.ordername}>
-            <h5>Order by Name:</h5>
-            <select onClick={(e) => handleOrderByName(e)}>
+            <div>
+            {/* <h5>Order by Name:</h5> */}
+            <select className={styles.nameOrder} onClick={(e) => handleOrderByName(e)}>
+            <option value="Order by Name">Order by Name</option>
               <option value="Asc">From A to Z</option>
               <option value="Desc">From Z to A</option>
             </select>
           </div>
-          <div className={styles.orderweight}>
-            <h5>Order by weight:</h5>
-            <select onClick={(e) => handleOrderByWeight(e)}>
+          <div>
+           {/*  <h5>Order by weight:</h5> */}
+            <select  className={styles.weightOrder} onClick={(e) => handleOrderByWeight(e)}>
+            <option value="Order by Weight">Order by Weight</option>
               <option value="Weight 1">Small</option>
               <option value="Weight 2">Big</option>
             </select>
             </div>
             <div>
-          <select className={styles.temps} onClick={(e) => handleFilterByTemp(e)}>
+          <select className={styles.tempsFilter} onClick={(e) => handleFilterByTemp(e)}>
             <option value="">Filter by Temperament</option>
             {allTemp.map((temp) => (
               <option key={temp.id} value={temp.name}>{temp.name}</option>
@@ -106,23 +109,25 @@ return (
           </select>
           </div>
           <div>
-        <select onClick={(e) => handleFilterCreated(e)} className={styles.selectD}>
-          <option value="All">All</option>
-          <option value="Created">Created</option>
+        <select onClick={(e) => handleFilterCreated(e)} className={styles.idFilter}>
+        <option value="Source">Source</option>
+          <option value="All">All Dogs</option>
+          <option value="Created">Created by You!</option>
         </select>
         </div>
           <div>
-            <button className={styles.reload} onClick={(e) => handleClick(e)}> 
-            Refresh
+            <button className={styles.refreshButton} onClick={(e) => handleClick(e)}> 
+            Refresh 
         </button>
             </div>
         </div>
+        <hr className={styles.line}/>
 
-      <div className={styles.direction}>
+      <div className={styles.mainContainer}>
         { currentDogs?.map( el => {            //necesito tomar en el map solo los dogs que me devuelve el paginado
                 return (
-                    <div className={styles.dogsContainer}>
-                      <NavLink styles={{ textDecoration: "none" }} to={"/dogs/" + el.id}>
+                    <div className={styles.dogContainer}>
+                     {/*  <Link  styles={{ textDecoration: "none" }} to={"/dogs/" + el.id}> */}
                 <Card 
                 name={el.name} 
                 image={el.image} 
@@ -134,13 +139,13 @@ return (
                 key={el.id}
                 weight={el.weight}
                 />
-                </NavLink>
+                {/* </Link> */}
             </div>
           );
             })
         }
         </div>
-        <div className={styles.paged}>
+        <div>
         <Paged
           dogsPerPage= { dogsPerPage }
           allDogs= { allDogs.length }                     //renderizo allDogs.length porque necesito un valor numérico
@@ -148,7 +153,7 @@ return (
         />
       </div>
       <div className={styles.back}>
-        <Link to="/"><button className={styles.backbutton} >Back</button></Link>
+        <Link to="/"><button className={styles.backButton} >Back</button></Link>
         </div>
     </div>
 )

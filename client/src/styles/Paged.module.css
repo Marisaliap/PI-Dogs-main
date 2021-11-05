@@ -3,33 +3,39 @@
 }
 
 .listContainer {
-  display: inline-block;
+  display: inline-flex;
   flex-direction: row;
 }
 
 .number {
   color: #fff;
   list-style: none;
-  padding: 5px;
-  font-size: 14px;
+  padding: 1px;
+  font-size: 16px;
   font-family: Lato, Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
 .link {
-  padding: 1px;
-  cursor: pointer;
-  background: none;
   color: #fff;
+  display:inline-flex;
+  padding: 10px;
+  margin: 2px;
   border: none;
-  text-align: center;
+  cursor: pointer;
+  background-color: #c485ba83;
+  border-radius: 10%;
+  list-style:none;
+  width: 10px;
+  height: 10px;
+  font-size: 12px;
+  align-items: center;
 }    
 
 .link:hover {
-  padding: 1px;
-  cursor: pointer;
-  background: none;
-  color:#311601;
+  background-color: #fff;
   border: none;
-  text-align: center;
+  color: #220F00;
+  transition-delay: 0.2s;
+  transition: 0.8s;
 }    

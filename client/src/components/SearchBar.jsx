@@ -21,8 +21,8 @@ export default function SearchBar() {
     }
 
     return (
-        <div className={styles.SearchBar}>
-            <input className={styles.input} type="text" value={name} placeholder="Looking for a breed dog?" onChange={(e) => handleInput(e)} />
+        <div /* className={styles.SearchBar} */>
+            <input className={styles.input} type="text" value={name} placeholder="Look for a breed dog..." onChange={(e) => handleInput(e)} />
             <button className={styles.button} type="submit" onClick={(e) => handleSubmit(e)} > Search</button>
         </div>
     )

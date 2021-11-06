@@ -22,7 +22,7 @@ return (
      <div className={styles.container}>
         { 
         myDog.length > 0 ?
-        <div className={styles.box}> 
+        <div className={styles.detailContainer}> 
          <h1 className={styles.title}>{myDog[0].name} </h1>  
          <img className={styles.image} src = {myDog[0].image} alt="Img not found"  />  
          <p className={styles.text}> Temperaments: {!myDog[0].createdInDb? myDog[0].temperament + " " : myDog[0].temperaments.map(el => el.name + (" "))}</p>  

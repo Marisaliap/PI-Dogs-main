@@ -7,9 +7,15 @@ const { Dog, conn } = require('../../src/db.js');
 const agent = session(app);
 const dog = {
   name: 'Pug',
+  id: '7e253860-ed58-46bc-95bc-5a33f0fa56ef', 
+  weight: '8',
+  height: '25',
+  life_span: '14',
+  temperament: "Clever",
+  image: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Mops-falk-vom-maegdebrunnen-internationaler-champion-fci.jpg'
 };
 
-describe('Videogame routes', () => {
+describe('Dogs routes', () => {
   before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
@@ -22,3 +28,20 @@ describe('Videogame routes', () => {
     );
   });
 });
+
+describe("Obtiene un Dog por id o por name", () => {
+  describe("GET /dogs/:id", () => {
+    it("Se espera una respuesta 200 si se pasa un id", () =>
+      agent.get("/dogs/201").expect(200));
+  });
+  describe("GET /dogs?name=xxx", () => {
+    it("Si se recibe name devuelve una respuesta 200", () =>
+      agent.get("/dogs?name=Pug"));
+  });
+  describe("GET /dogs", () => {
+    it("Si recibe sólo la ruta /dogs devuelve una respuesta 200 con todos los dogs", (done) => {
+      agent.get("/dogs").then(() => done());
+    });
+  });
+});
+

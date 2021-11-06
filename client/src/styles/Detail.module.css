@@ -21,7 +21,7 @@
     position: relative;
 } 
 
-.box {
+.detailContainer {
     border: 5px;
     width: 90%;
     margin: 2%;

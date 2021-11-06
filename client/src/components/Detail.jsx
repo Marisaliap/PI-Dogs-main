@@ -28,7 +28,7 @@ return (
          <p className={styles.text}> Temperaments: {!myDog[0].createdInDb? myDog[0].temperament + " " : myDog[0].temperaments.map(el => el.name + (" "))}</p>  
          <p className={styles.text}> Height: {myDog[0].height} Cm</p> 
          <p className={styles.text}> Weight: {myDog[0].weight} Kg </p> 
-         <p className={styles.text}> Life span: {myDog[0].createdDb? myDog[0].life_span` + "years" `: myDog[0].life_span}  </p>  
+         <p className={styles.text}> Life span: {myDog[0].createdDb? myDog[0].life_span + "years" : myDog[0].life_span}  </p>
         </div> : <p className={styles.text}> Loading...</p>                                                          
     }
      </div>

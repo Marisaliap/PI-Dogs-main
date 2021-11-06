@@ -33,6 +33,7 @@
     color:  /* #c53211 #164a41 #203647 #283747  #fc4a1a #00303f   rojos:  #932432 #b73225 #de354c #c53211 */  #b11a21   ;
     font-weight: bolder;
     font-family: "Lato", Arial, Helvetica, sans-serif;
+    text-shadow: 6px 6px 4px rgba(44, 11, 34, 0.473);
     margin-top: 7px;
 }
 

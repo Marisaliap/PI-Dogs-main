@@ -12,9 +12,11 @@ test('renders learn react link', () => {
 import React from "react";
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
+import { MemoryRouter } from "react-router-dom";
 import configureStore from "redux-mock-store";
 
-import App from './App.js'; 
+import { App } from './App.js'; 
+
 
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import LandingPage from "./components/LandingPage"
@@ -37,15 +39,17 @@ describe("App", () => {
   describe("El componente Landing Page debe renderizar solo en la ruta /.", () => {
     it('Debería renderizarse solo en la ruta "/"', () => {
       const wrapper = mount(
-      <BrowserRouter>
+        <BrowserRouter>
         <Switch>
-         <Route exact path= "/"/>
-        </Switch>
-      </BrowserRouter>
+         <MemoryRouter initialEntries={["/"]}>
+         </MemoryRouter>
+         </Switch>
+         </BrowserRouter>
       );
       expect(wrapper.find(LandingPage)).toHaveLength(0);
     });
   });
+
   
   it("El componente Home debe renderizar sólo en la ruta /home", () => {
     const wrapper = mount(

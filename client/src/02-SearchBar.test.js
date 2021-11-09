@@ -18,3 +18,4 @@ describe("<SearchBar />", () => {
     expect(wrapper.contains(<input value={name}/>)).toEqual(true);
   });
 });
+

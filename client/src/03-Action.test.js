@@ -1,14 +1,14 @@
 import { getDogs, getDogsByName, filterDogsCreated, filterDogTemp, orderbyName, orderbyWeight } from "./actions/index.js";
 
 describe("Actions", () => {
-  xit('Debería retornar una action con las propiedades type "GET_DOGS" y payload: Este contiene lo que recibe como argumento la funcion ademas de una card por cada uno de los perros, tanto los de la Api como los creados en la base de datos', () => {
+  it('Debería retornar una action con las propiedades type "GET_DOGS" y payload: Este contiene lo que recibe como argumento la funcion ademas de una card por cada uno de los perros, tanto los de la Api como los creados en la base de datos', () => {
     const payload = "All";
     expect(getDogs(payload)).toEqual({
       type: "GET_DOGS",
       payload: "All",
     });
   });
-  xit('Debería retornar una action con las propiedades type ""GET_DOGS_BY_NAME"" y payload: Este contiene lo que recibe como argumento la funcion y los datos de todos los perros que coincidan con ese argumento', () => {
+  it('Debería retornar una action con las propiedades type ""GET_DOGS_BY_NAME"" y payload: Este contiene lo que recibe como argumento la funcion y los datos de todos los perros que coincidan con ese argumento', () => {
     const payload = "Cocker";
     expect(getDogsByName(payload)).toEqual({
       type: "GET_DOGS_BY_NAME",
@@ -40,3 +40,4 @@ describe("Actions", () => {
     });
   });
 });
+

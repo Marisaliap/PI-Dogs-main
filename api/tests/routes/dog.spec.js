@@ -7,7 +7,7 @@ const { Dog, conn } = require('../../src/db.js');
 const agent = session(app);
 const dog = {
   name: 'Pug',
-  id: '201', 
+  id: 'bcaf121f-4dab-4129-90c5-50ae9512eb7f', 
   weight: '8',
   height: '25',
   life_span: '14',
@@ -22,27 +22,28 @@ describe('Dogs routes', () => {
   }));
   beforeEach(() => Dog.sync({ force: true })
     .then(() => Dog.create(dog)));
-  describe('GET /dogs', () => {
+  describe('GET /api/dogs', () => {
     it('should get 200', () =>
-      agent.get('/dogs').expect(200)
+      agent.get('/api/dogs').expect(200)
     );
   });
 });
 
 describe("Obtiene un Dog por id o por name", () => {
-  describe("GET /dogs/:id", () => {
+  describe("GET /api/dogs/:id", () => {
     it("Se espera una respuesta 200 si se pasa un id", () =>
-      agent.get("/dogs/1").expect(200));
+      agent.get("/api/dogs/bcaf121f-4dab-4129-90c5-50ae9512eb7f").expect(200));
   });
-  describe("GET /dogs?name=xxx", () => {
+  
+  describe("GET /api/dogs?name=xxx", () => {
     it("Si se recibe name devuelve una respuesta 200", () =>
-      agent.get("/dogs?name=Pug"));
+      agent.get("/api/dogs?name=Pug").expect(200));
   });
-  describe("GET /dogs", () => {
-    it("Si recibe sólo la ruta /dogs devuelve una respuesta 200 con todos los dogs", (done) => {
-      agent.get("/dogs").then(() => done());
+
+  describe('/api/temperament', function() {
+    it('GET respond with a status 200 if you find temperaments', () =>
+      agent.get('/api/temperament').expect(200)); 
     });
-  });
-});
+  })
 
 

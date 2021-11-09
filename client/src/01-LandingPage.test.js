@@ -17,3 +17,5 @@ describe("<LandingPage />", () => {
     expect(wrapper.find(NavLink)).toHaveLength(1);
   });
 });
+
+

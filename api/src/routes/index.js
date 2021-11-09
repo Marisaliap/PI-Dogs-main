@@ -66,36 +66,8 @@ router.get("/dogs", async (req, res, next) => {
         };
     });
 
-    /*router.get('/temperament',async(req, res, next) => {
-    try {
-        var finalTemps = []; // declaro un array que va a contener todos los temps por separado xque los quiero guardar así
-        const apiTemp = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`); //entra a la api
-        const temp = apiTemp.data.map(t => t.temperament);//mapeo la info
-        let tempSplit = temp.map(el => el && el.split(","))  //tomo la info y la separo x las comas, en la api es un string separado cada temp por comas
-        let tempArray = tempSplit.flat().sort()//.flat() crea una nueva matriz con todos los elementos de sub-array concatenados recursivamente hasta la profundidad especificada./.sort() ordena los elementos y devuelve el arreglo ordenado.
-        tempArray.map(el => { //vuelvo a mapear los elementos del array obtenido antes
-            if (el !== undefined) { //si no hay saco ese espacio
-                let tempTrim = el.trim()//.trim( ) elimina los espacios en blanco en los extremos de cada string
-                finalTemps.push(tempTrim) //pusheo sin los espacios vacios      
-            }        
-        }); 
-        let finalArrayTemps = finalTemps.filter((item, index)=>{  
-            return finalTemps.indexOf(item) === index;             //me devuelve los temps. 
-          }) 
-        console.log(finalArrayTemps)
-        for (let i = 0 ; i < finalArrayTemps.length ; i++) {   //una vez que tiene todos los temps x separado
-            Temperament.findOrCreate({                         //entra al modelo Temperament y busca un temp o si no está lo crea
-                where: {name: finalArrayTemps[i]}              //donde el nombre sea cada uno de los elementos del array obtenido
-            }) 
-        };    
-        const allTemperaments = await Temperament.findAll();    //en alltemperaments le digo que entre a Temperament, 
-        res.send(allTemperaments)                               //traiga todo y me lo mande
-    } catch (error) {
-        next(error)
-    };
-    }); */
 
-    router.get("/temperament", async (req, res) => {   //revisar la dat que recibo, de esta forma parece darme mas elementos que de la otra forma
+    router.get("/temperament", async (req, res) => {   //revisar la data que recibo, de esta forma parece darme mas elementos que de la otra forma
         const temperamentApi = (await axios.get(
             `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
         )).data

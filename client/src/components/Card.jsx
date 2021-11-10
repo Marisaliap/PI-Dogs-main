@@ -9,7 +9,7 @@ export default function Card({ name, image, temperament, weight}) {
             <div className={styles.box}>
             <div>
             <p className={styles.breed}>{name}</p>
-            <img className={styles.image} src={image} alt= "Image not found" width= "200px" height="250px" />
+            <img className={styles.image} src={image} alt= "Image not found" width= "240px" height="180px" />
             </div>
             <div /* className={styles.overlay} */>
             <div className={styles.text}>

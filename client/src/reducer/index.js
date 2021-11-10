@@ -13,8 +13,8 @@ function rootReducer (state = initialState, action) {
         case "GET_DOGS" : 
             return {
                ...state,
-               dogs: action.payload,      //en mi estaod dogs que en un principio es un array vacio manda todo lo que te mande la accion de dogs
-               allDogs: action.payload    //y poné todos lo personajes en allDogs también
+               dogs: action.payload,      //en mi estaod dogs que en un principio es un array vacio manda todo lo que te mande la accion getDogs
+               allDogs: action.payload    //y poné todos lo personajes en allDogs también (esto me sirve para los filtros)
             }
         case "DOG_DETAIL" :             //al hacer click sobre un perro accedo a sus detalles
             return {
@@ -37,7 +37,7 @@ function rootReducer (state = initialState, action) {
             } 
         case "FILTER_DOGS_CREATED" :   //si el valor de mi acción es created, traigo todos aquellos creados en la DB  
             const dogsFiltered = action.payload === "Created" ? state.allDogs.filter((dog) => dog.createdInDb) :   //primero siempre filtro el arreglo que tiene todo
-            state.allDogs.filter((dog) => !dog.createdInDb);
+            state.allDogs.filter((dog) => !dog.createdInDb);  
             return {                  //retorno el estado, y si mi acción vale All traigo los de la api y los filtrados
                 ...state,
                 dogs: action.payload === "All" ? state.allDogs : dogsFiltered  //si tiene todo devolveme todo y si no devolvéme todos los dogs filtrados
@@ -61,7 +61,7 @@ function rootReducer (state = initialState, action) {
             state.dogs.sort(function(a, b) {               //sort compara dos valores, accedemos al name y los compara, y los coloca a 
                 if(a.name > b.name) return 1;              //la derecha o a la izquierda, antes o despu{es en el arreglo dependiendo si son mas grandes o mas chicos
                 if(b.name > a.name) return -1;
-                return 0;
+                return 0;                                   //si son iguales los deja como está
             }) :                                           // y si no, (si es no es Asc es Des) ordeno de Z a A
             state.dogs.sort(function(a, b) {
                 if(a.name > b.name) return -1;
@@ -75,7 +75,7 @@ function rootReducer (state = initialState, action) {
         case "ORDER_BY_WEIGHT" : 
             const weightDogs = action.payload === "Weight 1" ? 
             state.dogs.sort(function( a, b) {   
-            if(typeof action.payload.weight === "string") {         //Recibo un string con el peso
+            if(typeof action.payload.weight === "string") {         //si recibo un string con el peso
                 if (a.weight > b.weight) return 1                   //accedo al valor weight que quiero comparar
                 if (a.weight < b.weight) return -1
                 return 0;                                           //si son iguales no hace nada, los deja igual

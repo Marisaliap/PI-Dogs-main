@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDogs, orderbyName, orderbyWeight, filterDogsCreated, filterDogTemp, getTemperaments } from "../actions";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paged from "./Paged";
 import styles from "../styles/Home.module.css"; 
@@ -13,7 +13,7 @@ import SearchBar from "./SearchBar";
 
 export default function Home () {
 
-const dispatch = useDispatch()                        //uso el hook useDispatch
+const dispatch = useDispatch()                        //declaro la const dispatch para despachar mis acciones, con el hook useDispatch
 const allDogs = useSelector((state) => state.dogs)   // este hook es lo mismo que usar el mapStateToProps. Con useSelector traeme en esa constante todo lo que esta en el estado de dogs
 // me trae desde el reducer el estado dogs donde están todos los perros 
 
@@ -30,11 +30,11 @@ const pagedTotal = (pageNumber) => {
 
 const allTemp = useSelector((state) => state.temperaments)
 
-const [order, setOrder] = useState(""); // esto es solo un estado local para que me renderize el ordenamiento A-Z
+const [order, setOrder] = useState(""); // esto es solo un estado local vacío para que me renderize el ordenamiento A-Z
 const [orderr, setOrderr] = useState(""); // esto es solo un estado local para que me renderize el ordenamiento por peso
 
-useEffect (()=> {
-    dispatch(getDogs());                              //este dispatch es lo mismo que hacer el mapDispatchToProps
+useEffect (()=> {                                      //con useEffect me traigo del estado los dogs cuando el componente se monta
+    dispatch(getDogs());                              //este dispatch es lo mismo que hacer el mapDispatchToProps, despacho la accion getDogs
 },[dispatch])
 
 useEffect(()=>{
@@ -43,7 +43,7 @@ useEffect(()=>{
 
 function handleClick(e) {
     e.preventDefault();
-    dispatch(getDogs());                                  //esto me lo resetea la pagina para que no se buguee
+    dispatch(getDogs());                                  //esto me lo resetea la pagina para que no se buguee, lo que hace es despachar el getDogs
 }
 
 function handleFilterCreated(e) {                        //declaro una función que es un handle del filter del dog creado o de api
@@ -67,7 +67,7 @@ function handleOrderByWeight(e) {
     e.preventDefault();
     dispatch(orderbyWeight(e.target.value));
     setCurrentPage(1);
-    setOrderr(`Ordenado ${e.target.value}`);
+    setOrderr(`Ordenado ${e.target.value}`);     //ese estado local empieza vacío y lo seteo de cierta manera para que me haga el renderizado
 }
 
 return (
@@ -149,7 +149,7 @@ return (
         <div>
         <Paged
           dogsPerPage= { dogsPerPage }
-          allDogs= { allDogs.length }                     //renderizo allDogs.length porque necesito un valor numérico
+          allDogs= { allDogs.length }                     //le paso allDogs.length porque necesito un valor numérico
           pagedTotal= { pagedTotal }
         />
       </div>

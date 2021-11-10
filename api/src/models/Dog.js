@@ -6,8 +6,8 @@ module.exports = (sequelize) => {
   sequelize.define('dog', {
     id: {
       type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,  //me genera automáticamente un UUIDV4
-      allowNull: false,
+      defaultValue: DataTypes.UUIDV4,  //me genera automáticamente un UUIDV4 que es un datatype de Sequelize
+      allowNull: false,                //no se permite que este campo esté vacío, o sea, es un campo requerido
       primaryKey: true
     },
     name: {

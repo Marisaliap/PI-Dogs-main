@@ -5,9 +5,9 @@ import { getDogs, orderbyName, orderbyWeight, filterDogsCreated, filterDogTemp, 
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paged from "./Paged";
+import SearchBar from "./SearchBar";
 import styles from "../styles/Home.module.css"; 
 /* import styles from "../styles/HomeBackup.module.css"; */
-import SearchBar from "./SearchBar";
 
 
 

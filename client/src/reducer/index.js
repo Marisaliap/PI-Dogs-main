@@ -24,7 +24,7 @@ function rootReducer (state = initialState, action) {
         case "GET_DOGS_BY_NAME" :
             return {
                ...state,
-               dogs: action.payload
+               dogs: action.payload       //lo renderizo en el array dogs, este es el filtrado de buscar por nombre que hice en el back
             }
         case "GET_TEMPERAMENTS" :
             return {

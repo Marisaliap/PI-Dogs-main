@@ -124,6 +124,14 @@ router.post("/dog", async (req, res, next) => {
         next(error)
     };
 });
+
+
+router.post("/temperament", async (req, res, next) => {
+const { name } = req.body
+const newTemp = await Temperament.create ({ name })
+console.log(newTemp)
+res.send (newTemp) 
+})
  
 /* 
 router.get("/dog/:dogId/temperament/:temperamentId", async (req, res, next) => {  //cuando haga un get me va a traer los dogs que yo le haya agregado ese temperamento en particular (xque en findAll usé include : temperament)

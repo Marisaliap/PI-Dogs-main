@@ -43,8 +43,7 @@ export function getTemperaments() {
 export function postDog (payload) {   //esto me va a devolver la información de los dogs que se agregan por post
     return async function (dispatch) {
         var json = await axios.post("http://localhost:3001/api/dog/", payload);  // uso axios.post para disparar la accion de crear un god
-        /* console.log(json)                                                    //en esta ruta quiero hacer el post del payload (lo que llega en el front)
-        return json; */
+        /* console.log(json)*/                                                    //en esta ruta quiero hacer el post del payload (lo que llega en el front)
         return dispatch ({
             type: "POST_DOG",
             payload: json.data

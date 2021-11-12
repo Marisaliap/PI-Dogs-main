@@ -15,7 +15,7 @@ export default function Detail (props) {
         dispatch(dogDetail(props.match.params.id))      //accedo al id pasandole props a mi componente Detail
     }, [dispatch, props.match.params.id])
     
-    const myDog = useSelector((state) => state.detail)
+    const myDog = useSelector((state) => state.detail)    // me traigo el estado detail desde el reducer con useSelector
 
 return (
     <div className={styles.bkg}> 
@@ -39,6 +39,6 @@ return (
 )
 }
 
-//hago esto porque la img en el back viene como image
+
 //en el back el temperamento es en plural y es un array con un objeto con la propiedad name. En cambio en la api me viene como un 
 //arreglo de strings - por eso tengo que acceder de forma distinta

@@ -50,10 +50,10 @@ export default function CreateDog () {
     const dispatch = useDispatch()
     const history = useHistory()                           // mètodo del router que me redirige a la ruta que yo le diga 
     const temperaments = useSelector((state) => state.temperaments)
-    const [temps, setTemps] = useState([])  
+    const [temps, setTemps] = useState([])              
     const [errors, setErrors] = useState({});          //genero un estado local errors y setErrors que va ser un objeto vacío  
 
-    const [input, setInput] = useState({
+    const [input, setInput] = useState({               //acá me guardo en un estado local los datos del formulario y le paso lo que necesita el post
         name: "",        
         min_height: "",
         max_height: "",
@@ -61,7 +61,7 @@ export default function CreateDog () {
         max_weight: "",
         life_span: "",
         image: "",
-        temperament: []             //temperament va a ser un arreglo porque quiero poner mas de uno (un stringo no me serviría)
+        temperament: []             //temperament va a ser un arreglo porque quiero poner mas de uno (un string no me serviría)
     })
 
     useEffect (() => {
@@ -94,15 +94,14 @@ export default function CreateDog () {
             } console.log(e.target.value)
     
     }
-    function handleClick(e){           //uso el handleClick para borrar del estado un temp que la persona pueda quitar un temperamento que había elegido antes
+    function handleDelete(e){           //uso el handleDelete para borrar del estado un temp que la persona pueda quitar un temperamento que había elegido antes
         e.preventDefault()                                    
-        setTemps(temps.filter(temp => temp !== e.target.value))  //los renderiza y si hago click filtra y me renderiza todos menos el filtrado, que es el e.target.value
+        setTemps(temps.filter(temp => temp !== e.target.value))  //Me devuelve el estado nuevo sin ese elemento que yo clikee
         console.log(temps)                                    //en temps tengo todos los temperamentos que fui agregando de la lsita
         console.log(e.target.value)                           //cuando hago click en X consologuea el que filtré 
     } 
 
     function handleSubmit(e) {                   //el handleSubmit lo voy a usar para submitear el formulario
-      /*   e.preventDefault()   */
         if (errors.name !== undefined || 
             errors.min_height !== undefined ||
             errors.max_height !== undefined ||
@@ -110,7 +109,7 @@ export default function CreateDog () {
             errors.max_weight !== undefined ||
             errors.life_span !== undefined 
             )  {
-            document.getElementById("DoNotSubmit"); //con document.getElementById() y pasándole como parámetro el id del form ("DontSubmit") accedo al DOM de los elementos de la página
+            document.getElementById("DoNotSubmit"); //con document.getElementById() selecciono el form por medio del atributo id que le asigné ("DontSubmit")
             return alert("Please complete the fields with valid data");
           }
         const addDog= {
@@ -135,7 +134,7 @@ export default function CreateDog () {
         temperament: []  
     })
         setTemps([])                             //seteo el array de temps seleccionados por el usuario para que quede vacio de nuevo
-        history.push("/home")
+        history.push("/home")                    //cuando termine de hacer esto mandáme al home (porque ya creé mi dog)
     }
     
     return(
@@ -155,7 +154,7 @@ export default function CreateDog () {
                                 value={input.name}
                                 onChange={(e) => handleChange(e)}
                                 />
-                                {errors.name && (
+                                {errors.name && (    //si está mi estado errors.name renderizam un párrafo con ese error
                                     <p className={styles.error}>{errors.name}</p>
                                 )}                                       
                         </div>
@@ -220,12 +219,12 @@ export default function CreateDog () {
                                         )
                                     })}
                                 </select>
-                                { temps.map((temp, id) =>{  //uso React.Fragment xque puedo la prop key y pasarle el id de cada temp para renderizarlo y que la persona pueda verlo y quitarlo de la lista 
+                                { temps.map((temp, id) =>{  //uso React.Fragment xque tiene la prop key y pasarle el id de cada temp para renderizarlo y que la persona pueda verlo y quitarlo de la lista 
                                     return ( 
                                         <React.Fragment key={id}>   
                                             
                                             <div className={styles.tempSelect}>{temp}
-                                            <button className={styles.btnTemp} value={temp} onClick={(e) => handleClick(e)}>x</button>
+                                            <button className={styles.btnTemp} value={temp} onClick={(e) => handleDelete(e)}>x</button>
                                             </div>
                             
                                         </React.Fragment>
